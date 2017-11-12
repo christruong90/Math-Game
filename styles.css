@@ -1,0 +1,18 @@
+
+
+body {
+	background-color: blue;
+}
+
+.wrapper {
+    text-align: center;
+    color: red;
+}
+
+form {
+	background-color: blue;
+}
+
+#email {
+	color: blue;
+}
