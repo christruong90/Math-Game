@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 	ob_start();
 	$email = $_POST["email"];
@@ -17,7 +17,7 @@
 		        echo $validUser;
 		        echo "<br>";
 		        echo $validPassword;
-		        
+
 		        if (strcmp($email, $validUser) === 0 && strcmp($password, $validPassword) === 0 ) {
                     $_SESSION["total"] = 0;
                     $_SESSION["score"] = 0;
@@ -32,9 +32,9 @@
 		    if ($found === false) {
 		  	header("Location: login.php?error=Invalid Login credits!");
 
-		    } 
-		    
-		} 
+		    }
+
+		}
 	}
 
 ?>
@@ -52,34 +52,36 @@
 </head>
 
 <body>
-    
-    <div class="container">
-        <div class="row">
-    <div class="box">
-    <div class="col-sm-10 col-sm-offset-1"><h2>Login to the Math Game</h2></div>
-    <div class="col-sm-1"></div>
-</div>
-<form action="./login.php" method="post" role="form" class="form-horizontal">
+	<nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Login to the Math Game</a>
+        </div>
+        </div>
+    </nav>
+
+
+<form action="./login.php" method="post" class="form-horizontal">
     <div class="form-group">
         <div class="col-sm-4 text-right">Email:</div>
         <div class="col-sm-3">
-            <input type="text" name="email" placeholder="Email" size="6" class="form-control" id="email">
+            <input required="" autofocus="" type="text" name="email" placeholder="Email" size="4" class="form-control" id="email">
         </div>
         <div class="col-sm-5"></div>
     </div>
     <div class="form-group">
         <div class="col-sm-4 text-right">Password:</div>
         <div class="col-sm-3">
-            <input type="text" name="password" placeholder="Password" size="6" class="form-control" id="password" >
+            <input required="" type="password" name="password" placeholder="Password" size="4" class="form-control" id="password" >
         </div>
         <div class="col-sm-5"></div>
     </div>
     <div class="row">
         <div class="col-sm-3 col-sm-offset-4">
-            <button type="submit" name="submit" class="btn btn-primary">Login</button>
+            <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Login</button>
         </div>
     </div>
-    </div>
+    
 
 
     <div class="wrapper">
@@ -99,6 +101,6 @@
 
 <div class="row">
 </div>
-    </div>
+    
 </body>
 </html>

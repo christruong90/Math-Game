@@ -15,26 +15,26 @@ $msg;
 //Checking if the answer was correct when you clicked submit
 
 if(isset($_POST["answer"]) && $_SESSION["total"] == $_POST['total']){
-	
+
     if(!is_numeric($_POST["answer"])) {
-        $msg = "Input should be a number!";		
-	
+        $msg = "Input should be a number!";
+
     }
-	
-	
+
+
     else if ($_SESSION["correctAnswer"] == $_POST["answer"]){
-		
+
 		$_SESSION['total']++;
         $_SESSION['score']++;
-		
-		$msg = "Correct";		
+
+		$msg = "Correct";
     }
     else {
        $_SESSION["total"] ++;
-	   
-	   $msg = "Incorrect," . " ". $_SESSION["numberOne"] ." " 
+
+	   $msg = "Incorrect," . " ". $_SESSION["numberOne"] ." "
 	   . $_SESSION['operator']." ". $_SESSION["numberTwo"] . " is " . $_SESSION["correctAnswer"];
-	   	   
+
     }
 		   $_SESSION['calc'] = $msg;
 
@@ -49,13 +49,13 @@ $_SESSION["numberTwo"] = $num2;
 if($addOrSubtract == 0){
 	$add = "+";
 	$answer = $num1 + $num2;
-	
+
 	$_SESSION["correctAnswer"] = $answer;
-	
+
 }else if($addOrSubtract == 1){
 	$add = "-";
 	$answer = $num1 - $num2;
-	
+
 	$_SESSION["correctAnswer"] = $answer;
 }
 $_SESSION['operator'] = $add;
@@ -72,14 +72,23 @@ $_SESSION['operator'] = $add;
   <meta charset="utf-8" />
 </head>
 <body>
+
+	<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Math Game</a>
+			<div class="col-sm-4"><a href="logout.php" class="btn navbar-btn btn-sm">Logout</a></div>
+        </div>
+    </div>
+    </nav>
+
     <div class="container">
 <form action="index.php" method="post" class="form-horizontal">
-    
+
 	<div class="row">
-        <div class="col-sm-4 col-sm-offset-4"><h1>Math Game</h1></div>
-        <div class="col-sm-4"><a href="logout.php" class="btn btn-default btn-sm">Logout</a></div>
+
     </div>
-	
+
     <div class="row" id="output">
             <label class="col-sm-2 col-sm-offset-3"><?php echo $num1; ?></label>
             <label class="col-sm-2"><?php echo $add ?></label>
@@ -96,11 +105,11 @@ $_SESSION['operator'] = $add;
         </div>
         <div class="col-sm-5"></div>
     </div>
-	
+
     <div class="row">
         <div class="col-sm-3 col-sm-offset-4">
             <div class="wrapper">
-            <button type="submit" class="btn btn-primary btn-sm" name="submit">Submit</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" name="submit">Submit</button>
         </div>
         </div>
         <div class="col-sm-3"></div>
